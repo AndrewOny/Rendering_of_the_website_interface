@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Contract - Overview</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>New Vehicle Contract</h1>
+            <div class="status">
+                <span class="contract-name">AT0000AK</span>
+                <span class="contract-status">Pending</span>
+            </div>
+            <div class="actions">
+                <button class="btn buy-now">
+                    <i class="fas fa-money-bill-wave"></i> Buy Now
+                </button>
+                <button class="btn close-offer">
+                    <i class="fas fa-times-circle"></i> Close Offer
+                </button>
+            </div>
+        </div>
+        <nav class="tabs">
+            <ul>
+                <li class="active"><a href="index.html">General</a></li>
+                <li><a href="statistics.html">Statistics</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="sidebar">
+                <ul>
+                    <li class="active"><a href="index.html"><i class="fas fa-home"></i> Overview</a></li>
+                    <li><a href="customers.html"><i class="fas fa-users"></i> Customers</a></li>
+                    <li><a href="administration.html"><i class="fas fa-cog"></i> Administration</a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <section id="overview" class="active">
+                    <section class="customer-info">
+                        <h2>Customer Information</h2>
+                        <div class="details">
+                            <dt>Name:</dt>
+                            <dd><span id="customer-name">Oleksandr</span></dd>
+                            <dt>AMLMEAFSILK80000:</dt>
+                            <dd><span id="customer-id">AMLMEAFSILK80000</span></dd>
+                            <button class="btn edit-customer">
+                                <i class="fas fa-pencil-alt"></i> Edit
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="vehicle-info">
+                        <h2>Vehicle Information</h2>
+                        <div class="details">
+                            <dt>License Plate:</dt>
+                            <dd><span id="license-plate">AT0000AK</span></dd>
+                            <dt>VIN:</dt>
+                            <dd><span id="vin">140</span></dd>
+                            <button class="btn edit-vehicle">
+                                <i class="fas fa-pencil-alt"></i> Edit
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="contract-details">
+                        <h2>Contract Details</h2>
+                        <div class="details">
+                            <dt>Contract ID:</dt>
+                            <dd>00001</dd>
+                            <dt>Type:</dt>
+                            <dd>TP</dd>
+                            <dt>Start Date:</dt>
+                            <dd>01.02.2007</dd>
+                            <dt>Premium:</dt>
+                            <dd>140001</dd>
+                        </div>
+                    </section>
+
+                    <section class="payment-info">
+                        <h2>Payment Information</h2>
+                        <div class="details">
+                            <dt>Payment Method:</dt>
+                            <dd>Credit Card</dd>
+                            <dt>Payment Amount:</dt>
+                            <dd>$1200.00</dd>
+                            <dt>Payment Schedule:</dt>
+                            <dd>Monthly</dd>
+                        </div>
+                    </section>
+
+                    <section class="insurance-info">
+                        <h2>Insurance Information</h2>
+                        <div class="details">
+                            <dt>Policy Number:</dt>
+                            <dd>INS-123456</dd>
+                            <dt>Coverage Limits:</dt>
+                            <dd>$100,000/$300,000</dd>
+                            <dt>Deductible:</dt>
+                            <dd>$500</dd>
+                        </div>
+                    </section>
+
+                    <section class="documents">
+                        <h2>Documents</h2>
+                        <div class="details">
+                            <dt>Document 1:</dt>
+                            <dd><a href="#">Download</a></dd>
+                            <dt>Document 2:</dt>
+                            <dd><a href="#">Download</a></dd>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="events">
+                    <h2>Events</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type / Comment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>02.02.2024 14:22</td>
+                                <td>Buy Now</td>
+                            </tr>
+                            <tr>
+                                <td>01.02.2024 00:32</td>
+                                <td>Created</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Buy Now button functionality
+        document.querySelector('.btn.buy-now').addEventListener('click', function() {
+            document.querySelector('.contract-status').textContent = 'ActivePaid';
+            addEvent('Buy Now');
+        });
+
+        // Close Offer button functionality
+        document.querySelector('.btn.close-offer').addEventListener('click', function() {
+            document.querySelector('.contract-status').textContent = 'Closed';
+            addEvent('Close Offer');
+        });
+
+        // Edit customer info
+        document.querySelector('.btn.edit-customer').addEventListener('click', function() {
+            const name = prompt('Enter new customer name:', document.querySelector('#customer-name').textContent);
+            if (name) {
+                document.querySelector('#customer-name').textContent = name;
+                addEvent('Edit Customer');
+            }
+        });
+
+        // Edit vehicle info
+        document.querySelector('.btn.edit-vehicle').addEventListener('click', function() {
+            const plate = prompt('Enter new license plate:', document.querySelector('#license-plate').textContent);
+            const vin = prompt('Enter new VIN:', document.querySelector('#vin').textContent);
+            if (plate) {
+                document.querySelector('#license-plate').textContent = plate;
+                addEvent('Edit Vehicle');
+            }
+            if (vin) {
+                document.querySelector('#vin').textContent = vin;
+                addEvent('Edit Vehicle');
+            }
+        });
+
+        // Add event to the events table
+        function addEvent(action) {
+            const table = document.querySelector('.events tbody');
+            const row = table.insertRow();
+            const dateCell = row.insertCell(0);
+            const actionCell = row.insertCell(1);
+
+            const now = new Date();
+            const dateString = `${now.getDate()}.${(now.getMonth() + 1).toString().padStart(2, '0')}.${now.getFullYear()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+            dateCell.textContent = dateString;
+            actionCell.textContent = action;
+        }
+    </script>
+</body>
+</html>

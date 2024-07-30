@@ -1,0 +1,167 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #006064;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header .status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .status .contract-name {
+  font-weight: bold;
+}
+
+header .actions {
+  display: flex;
+  gap: 10px;
+}
+
+header .actions .btn {
+  background-color: #00acc1;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+header .actions .btn:hover {
+  background-color: #00838f;
+}
+
+header .tabs ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header .tabs ul li {
+  background-color: #00838f;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+header .tabs ul li.active {
+  background-color: #004d40;
+}
+
+header .tabs ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+main .container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #eceff1;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #004d40;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+section h2 {
+  border-bottom: 2px solid #eeeeee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+section .details {
+  margin-bottom: 20px;
+}
+
+section .details dt {
+  font-weight: bold;
+}
+
+section .details dd {
+  margin: 0 0 10px 0;
+}
+
+section .details .btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #004d40;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #eeeeee;
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  display: block;
+}
